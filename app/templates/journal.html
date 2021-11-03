@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <style>
+      .resizedTextbox {width: 400px; height: 250px}
+      
+
+    </style>
+    <meta charset="utf-8">
+    <title>Journal Entry</title>
+  </head>
+  <body>
+    {% extends "base.html" %}
+    {% block content %}
+
+    <h1> New Journal Entry </h1>
+    <p>Write a new journal entry</p>
+
+    <form>  
+    <textarea name="journal_entry" cols="50" rows="10"></textarea> 
+    <br>
+    <button type="button">Submit</button>
+    </form> 
+
+    {% endblock %}
+  </body>
+</html>

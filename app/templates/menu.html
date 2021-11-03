@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Main Menu</title>
+  </head>
+  <body>
+
+    {% extends "base.html" %}
+    {% block content %}
+    <h1> Welcome to Mind Dump! </h1>
+    <h1> Main Menu </h1>
+    <div class="container">
+      <strong><nav>
+        <ul class="menu">
+          
+          <li><a href="{{ url_for('tracker') }}">Mental State Tracker</a></li>
+          <li><a href="{{ url_for('activity') }}">Today's Activities</a></li>
+          <li><a href="{{ url_for('journal') }} ">New Journal Entry</a></li>
+          <li>Previous Journal Entries</li>
+          <li>Help</li>
+          
+        </ul>
+      </nav></strong>
+    </div>
+    {% endblock %}
+  </body>
+</html>
