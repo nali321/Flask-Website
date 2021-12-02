@@ -2,6 +2,7 @@
     <head>
         {% if title %}
         <title>{{ title }} - Mind Dump</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         {% else %}
         <title>Welcome to Mind Dump</title>
         {% endif %}
@@ -14,10 +15,11 @@
             <a href="{{ url_for('login') }}">Login</a>
             {% else %}
             <a href="{{ url_for('logout') }}">Logout</a>
+            <a href="{{ url_for('delete_acc') }}">Delete Account</a>
             {% endif %}
-            
+
         </div>
-        <hr>
+        <!-- <hr> -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
 

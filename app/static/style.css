@@ -1,9 +1,10 @@
-html { font-family:Courier New; background: rgba(199, 199, 199, 0.466); padding: 1rem; }
-body { max-width: 960px; margin: 0 auto; background: rgba(235, 234, 234, 0.466); }
+html { font-family:Courier New; background:rgba(199, 199, 199, 0.466); padding: 1rem;text-align: center;}
+body { max-width: 960px; margin: 0 auto; background: rgba(235, 234, 234, 0.466);text-align: center; }
 h1 { font-family:Courier New; color: #C3A287; margin: 1rem 0; }
-a { color:#C3A287; }
-hr { border: none; border-top: 1px solid rgba(78, 173, 137, 0.322); }
-nav { background: rgba(78, 173, 137, 0.322); display: flex; align-items: center; padding: 0 0.5rem; }
+a { color:#C3A287; text-align: right; padding-left: 13em;}
+div { font-family:Courier New;background: rgba(78, 173, 137, 0.322); color: #C3A287; padding: 10 10.5rem; }
+hr { border: none; border-top: 1px solid rgba(199, 199, 199, 0.466); }
+nav { background:rgba(199, 199, 199, 0.466); display: flex; align-items: center; padding: 0 0.5rem; }
 nav h1 { flex: auto; margin: 0; }
 nav h1 a { text-decoration: none; padding: 0.25rem 0.5rem; }
 nav ul  { display: flex; list-style: none; margin: 0; padding: 0; }
@@ -23,6 +24,4 @@ nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
 .content input, .content textarea { margin-bottom: 1em; }
 .content textarea { min-height: 12em; resize: vertical; }
 input.danger { color: #cc2f2e; }
-input[type=submit] { align-self: start; min-width: 10em; }
- 
-
+input[type=submit] { align-self: start; min-width: 12em;color:#C3A287;font-family:Courier New; }
