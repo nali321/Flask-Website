@@ -1,84 +1,46 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Today's Activities</title>
-    <style>
-      .dropdown {position: relative; display: inline-block;}
-
-
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
-    {% extends "base.html" %}
-    {% block content %}
 
+  {% extends "base.html" %}
+  {% block content %}
+    
     <h1> What did you do today? </h1>
-    <p>For each activity select one(s) that you spent time doing today.</p>
 
-    <div class="dropdown">
-      <label for="role" id="label-role">Sleep</label>
-      <select name="role" id="role">
-        <option value="none" selected disabled hidden>
-          Select an Option</option>
-          <option value="1">Less than 3 hours</option>
-          <option value="2">4-7 hours</option>
-          <option value="3">More than 8 hours</option>
-      </select>
-      <br>
-
-      <label for="role" id="label-role">Diet</label>
-      <select name="role" id="role">
-        <option value="none" selected disabled hidden>
-          Select an Option</option>
-        <option value="1">Less than 3 hours</option>
-        <option value="2">4-7 hours</option>
-        <option value="3">More than 8 hours</option>
-      </select>
-      <br>
-
-      <label for="role" id="label-role">Weather</label>
-
-      <select name="role" id="role">
-        <option value="none" selected disabled hidden>
-          Select an Option</option>
-        <option value="1">Sunny</option>
-        <option value="2">Cloudy</option>
-        <option value="3">Raining</option>
-      </select>
-      <br>
-
-      <label for="role" id="label-role">Social Media</label>
-      <select name="role" id="role">
-        <option value="none" selected disabled hidden>
-          Select an Option</option>
-        <option value="1">Less than 1 hour</option>
-        <option value="2">2-4 hours</option>
-        <option value="3">More than 5 hours</option>
-      </select>
-      <br>
-
-      <label for="role" id="label-role">Movement</label>
-      <select name="role" id="role">
-        <option value="none" selected disabled hidden>
-          Select an Option</option>
-        <option value="1">Cardio</option>
-        <option value="2">Weightlifting</option>
-        <option value="3">None</option>
-      </select>
-      <br>
-
-      <label for="role" id="label-role">Self Care</label>
-      <select name="role" id="role">
-        <option value="none" selected disabled hidden>
-          Select an Option</option>
-        <option value="1">Cardio</option>
-        <option value="2">Weightlifting</option>
-        <option value="3">None</option>
-      </select>
-      <br>
-  </div>
-
+    {% if form %}
+    <form action="" method="post">
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.post.label }}<br>
+        {{ form.post(cols=32, rows=4) }}<br>
+        {% for error in form.post.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+    
     {% endblock %}
   </body>
 </html>
+
+<!-- {% if form %}
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+  <p>
+      {{ form.post.label }}<br>
+      {{ form.post(cols=32, rows=4) }}<br>
+      {% for error in form.post.errors %}
+      <span style="color: red;">[{{ error }}]</span>
+      {% endfor %}
+  </p>
+  <p>{{ form.submit() }}</p>
+</form>
+{% endif %} -->

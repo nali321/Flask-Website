@@ -1,8 +1,20 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Journal Entry</title>
 
-{% if form %}
-  <form action="" method="post">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  </head>
+  <body>
+  {% extends "base.html" %}
+  {% block content %}
+
+
+    <h1 class="tiny"> Anything else that's on your mind? </h1>
+    {% if form %}
+    <form action="" method="post">
       {{ form.hidden_tag() }}
       <p>
           {{ form.post.label }}<br>
@@ -12,6 +24,10 @@
           {% endfor %}
       </p>
       <p>{{ form.submit() }}</p>
-  </form>
-{% endif %}
-{% endblock %}
+    </form>
+    {% endif %}
+
+
+    {% endblock %}
+  </body>
+</html>

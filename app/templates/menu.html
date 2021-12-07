@@ -1,20 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-    
-<h1> Welcome to Mind Dump! </h1>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+ 
 <h1> Main Menu </h1>
-<div class="container">
-  <strong><nav>
-    <ul class="menu">
-      
-      <li><a href="{{ url_for('tracker') }}">Mental State Tracker</a></li>
-      <li><a href="{{ url_for('activity') }}">Today's Activities</a></li>
-      <li><a href="{{ url_for('journal') }} ">New Journal Entry</a></li>
-      <li><a href="{{ url_for('prev') }} ">Previous Journal Entries</a></li>
-      <li>Help</li>
-      
-    </ul>
-  </nav></strong>
-</div>
+<h2>A safe space for your thoughts and feelings.</h2>
+
+
+<strong><nav>
+  <ul class="menu">
     
+    <li class="menut"><a href="{{ url_for('tracker') }}">Mental State Tracker</a></li>
+    <li class="menut"><a href="{{ url_for('activity') }}">Today's Activities</a></li>
+    <li class="menut"><a href="{{ url_for('journal') }} ">New Journal Entry</a></li>
+    <li class="menut"><a href="{{ url_for('prev') }} ">Previous Posts</a></li>
+    <li class="menut"><a href="{{ url_for('help') }} ">Help</a></li>
+    
+  </ul>
+</nav></strong>
+
+<!-- <br><br>
+<div class="links">
+<a class="btn" href="{{ url_for('tracker') }}">Mental State Tracker</a><br><br><br><br>
+<a class="btn" href="{{ url_for('activity') }}">Today's Activities</a><br><br><br><br>
+<a class="btn" href="{{ url_for('journal') }} ">New Journal Entry</a><br><br><br><br>
+<a class="btn" href="{{ url_for('prev') }} ">Previous Posts</a><br><br><br><br>
+<a class="btn" href="{{ url_for('help') }} ">Help</a>
+</div> -->
+  
 {% endblock %}

@@ -4,72 +4,29 @@
     <meta charset="utf-8">
     <title>Mental State Tracker</title>
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-    <style>
-
-      .likert li {
-        float: left;
-        list-style-type: none;
-      }
-
-    </style>
   </head>
   <body>
-    {% extends "base.html" %}
-    {% block content %}
+  {% extends "base.html" %}
+  {% block content %}
+
 
     <h1> How are you feeling today? </h1>
-    <p>On a scale of 1-5, pick a number that best describes how you feel</p>
-    <ul class ="likert">
-        <li>Excelling</li>
-        <br>
-        <li><input type="radio" name="guilty" value="1" />1</li>
-        <li><input type="radio" name="guilty" value="2" />2</li>
-        <li><input type="radio" name="guilty" value="3" />3</li>
-        <li><input type="radio" name="guilty" value="4" />4</li>
-        <li><input type="radio" name="guilty" value="5" />5</li>
-        <br>
-    </ul>
-    <ul class ="likert">
-        <li>Thriving</li>
-        <br>
-        <li><input type="radio" name="guilty" value="1" />1</li>
-        <li><input type="radio" name="guilty" value="2" />2</li>
-        <li><input type="radio" name="guilty" value="3" />3</li>
-        <li><input type="radio" name="guilty" value="4" />4</li>
-        <li><input type="radio" name="guilty" value="5" />5</li>
-        <br>
-    </ul>
-    <ul class ="likert">
-        <li>Surviving</li>
-        <br>
-        <li><input type="radio" name="guilty" value="1" />1</li>
-        <li><input type="radio" name="guilty" value="2" />2</li>
-        <li><input type="radio" name="guilty" value="3" />3</li>
-        <li><input type="radio" name="guilty" value="4" />4</li>
-        <li><input type="radio" name="guilty" value="5" />5</li>
-        <br>
-    </ul>
-    <ul class ="likert">
-        <li>Struggling</li>
-        <br>
-        <li><input type="radio" name="guilty" value="1" />1</li>
-        <li><input type="radio" name="guilty" value="2" />2</li>
-        <li><input type="radio" name="guilty" value="3" />3</li>
-        <li><input type="radio" name="guilty" value="4" />4</li>
-        <li><input type="radio" name="guilty" value="5" />5</li>
-        <br>
-    </ul>
-    <ul class ="likert">
-        <li>In crisis</li>
-        <br>
-        <li><input type="radio" name="guilty" value="1" />1</li>
-        <li><input type="radio" name="guilty" value="2" />2</li>
-        <li><input type="radio" name="guilty" value="3" />3</li>
-        <li><input type="radio" name="guilty" value="4" />4</li>
-        <li><input type="radio" name="guilty" value="5" />5</li>
-        <br>
-    </ul>
+    {% if form %}
+    <form action="" method="post">
+      {{ form.hidden_tag() }}
+      <p>
+          {{ form.post.label }}<br>
+          {{ form.post(cols=32, rows=4) }}<br>
+          {% for error in form.post.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+      </p>
+      <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+
 
     {% endblock %}
   </body>

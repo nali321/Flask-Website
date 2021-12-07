@@ -1,27 +1,301 @@
-html { font-family:Courier New; background:rgba(199, 199, 199, 0.466); padding: 1rem;text-align: center;}
-body { max-width: 960px; margin: 0 auto; background: rgba(235, 234, 234, 0.466);text-align: center; }
-h1 { font-family:Courier New; color: #C3A287; margin: 1rem 0; }
-a { color:#C3A287; text-align: right; padding-left: 13em;}
-div { font-family:Courier New;background: rgba(78, 173, 137, 0.322); color: #C3A287; padding: 10 10.5rem; }
-hr { border: none; border-top: 1px solid rgba(199, 199, 199, 0.466); }
-nav { background:rgba(199, 199, 199, 0.466); display: flex; align-items: center; padding: 0 0.5rem; }
-nav h1 { flex: auto; margin: 0; }
-nav h1 a { text-decoration: none; padding: 0.25rem 0.5rem; }
-nav ul  { display: flex; list-style: none; margin: 0; padding: 0; }
-nav ul li a, nav ul li span, header .action { display: block; padding: 0.5rem; }
-.content { padding: 0 1rem 1rem; }
-.content > header { border-bottom: 1px solid rgb(255, 255, 255) 0); display: flex; align-items: flex-end; }
-.content > header h1 { flex: auto; margin: 1rem 0 0.25rem 0; }
-.flash { margin: 1em 0; padding: 1em; background: #0a0a0a; border: 1px solid #0099ff; }
-.post > header { display: flex; align-items: flex-end; font-size: 0.85em; }
-.post > header > div:first-of-type { flex: auto; }
-.post > header h1 { font-size: 1.5em; margin-bottom: 0; }
-.post .about { color: rgb(255, 255, 255); font-style: italic; }
-.post .body { white-space: pre-line; }
-.content:last-child { margin-bottom: 0; }
-.content form { margin: 1em 0; display: flex; flex-direction: column; }
-.content label { font-weight: bold; margin-bottom: 0.5em; color:#C3A287}
-.content input, .content textarea { margin-bottom: 1em; }
-.content textarea { min-height: 12em; resize: vertical; }
-input.danger { color: #cc2f2e; }
-input[type=submit] { align-self: start; min-width: 12em;color:#C3A287;font-family:Courier New; }
+html 
+{ font-family:Courier New; 
+  background:rgba(199, 199, 199, 0.466); 
+  padding: 1rem;
+  text-align: center;
+}
+
+body 
+{ max-width: 960px; 
+  margin: 0 auto; 
+  background: rgba(235, 234, 234, 0.466);
+  text-align: center; 
+}
+
+
+head
+{ font-family:Courier New; 
+  color: #C3A287; 
+  margin: 1rem 0; 
+  text-align: center;
+}
+
+
+ul {
+  list-style-type: none;
+  /* border: 2px outset #C3A287; */
+  text-align: center;
+}
+
+li {
+  text-align: center;
+}
+
+
+
+
+p{
+  font-family:Courier New; 
+  color: #C3A287; 
+  margin: 0rem 0; 
+  font-size: 1.5em;
+  align-items: center;
+  text-align: center;
+  
+}
+
+p3
+{
+  font-family:Courier New; 
+  color: #252525;  
+  font-size: 1.5em;
+  align-items: center;  
+}
+
+
+h5
+{
+  font-family:Courier New; 
+  color: #C3A287; 
+  margin: 2rem 0; 
+  font-size: 1.5em;
+  align-items: center;
+  padding: 5px;
+  
+}
+
+h1
+{ font-family:Courier New; 
+  color: #C3A287; 
+  margin: 1rem 0; 
+  font-size: 3em;
+  align-items: center;
+  /* background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)); */
+}
+h2
+{ font-family:Courier New; 
+  color: #C3A287; 
+  margin: 0rem 0; 
+  font-size: 1.2em;
+  align-items: center;
+  /* background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)); */
+}
+h3
+{ font-family:Courier New; 
+  color: #C3A287; 
+  margin: 0rem 0; 
+  font-size: 1.2em;
+  align-items: center;
+  /* background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)); */
+}
+h4
+{ font-family:Courier New; 
+  color: #C3A287; 
+  margin: 0rem 0; 
+  font-size: 1.2em;
+  align-items: center;
+  /* background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)); */
+}
+a 
+{ color:#C3A287; 
+  text-align: center; 
+  padding-left: em;
+  
+}
+
+.md
+{ font-family:Courier New;
+  background: rgba(78, 173, 137, 0.322); 
+  color: #C3A287; padding: 10 10.5rem; 
+  padding-left: 0px;
+  font-size: 1.5em;
+}
+
+.md a
+{ color:#C3A287; 
+  text-align: center; 
+  padding-left: 3em;
+}
+
+.post
+{ font-family:Courier New;
+  color: #111111; padding: 10 10.5rem; 
+  padding: 15px;
+  align-items: left;
+}
+
+.group
+{ font-family:Courier New;
+  color: #111111; padding: 10 10.5rem; 
+  padding: 15px;
+  float: left;
+}
+
+hr 
+{ border: none; 
+  border-top: 1px solid rgba(199, 199, 199, 0.466); 
+}
+input.danger
+{ color: #cc2f2e; 
+}
+
+input[type=submit] { 
+  align-self: start; 
+  min-width: 12em;
+  color:#000000;
+  font-family:Courier New; }
+
+/* test */
+/* background: rgba(78, 173, 137, 0.322); 
+color: #C3A287; padding: 10 10.5rem; */
+.topnav {
+  background: rgba(78, 173, 137, 0.322);
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #C3A287; padding: 10 10.5rem;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+
+.noline a.no {
+  text-decoration: none
+}
+
+.box {
+  inline-size: 400px;
+  overflow-wrap: break-word;
+  width: 960px;
+  text-align: center;
+  border-top: 1px solid rgba(199, 199, 199, 0.466);
+}
+
+.flash {
+  font-family:Courier New; 
+  color: #C3A287; 
+  margin: 0.5rem 0; 
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.label {
+  color: #C3A287;
+}
+
+button {
+  align-self: start; 
+  min-width: 8em;
+  color:#000000;
+  font-family:Courier New;
+}
+
+.tiny {
+  font-size: 2em;
+}
+
+.test {
+  align-self: start; 
+  min-width: 8em;
+  color:#000000;
+  font-family:Courier New;
+  background: repeating-linear-gradient(#74ABDD, #74ABDD 49.9%, #498DCB 50.1%, #498DCB 100%);
+  
+}
+
+ul.menu {
+  list-style-type: none;
+  width: 95%;
+  text-align: center;
+  justify-items: center;
+  /* background-color: grey; */
+  
+}
+
+li a {
+  display: block;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1em;
+  background: linear-gradient(to left, grey 50%, transparent 0), 
+  linear-gradient(to right, grey 50%, transparent 0);
+  background-size: 250px 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 25px 25px;
+  font-family:Courier New;
+
+}
+
+/* When the link is hovered on, its color will change */
+li a:hover {
+  /* background-color: #C3A287; */
+  font-size: 1em;
+  background: linear-gradient(to left, #C3A287 50%, transparent 0), 
+  linear-gradient(to right, #C3A287 50%, transparent 0);
+  background-size: 300px 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 25px 25px;
+}
+
+li.menut {
+  text-align: center;
+
+}
+
+li:last-child {
+  border-bottom: none;
+  
+}
+
+
+
+.btn {
+  background: linear-gradient(to left, grey 50%, transparent 0), 
+  linear-gradient(to right, grey 50%, transparent 0);
+  background-size: 500px 30px;
+  background-position: center;
+  background-repeat: repeat;
+  color: black;
+  padding: 15px 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #C3A287;
+  color: black;
+}
+
+/* .links {
+  background: linear-gradient(to left, grey 33%, transparent 0), 
+  linear-gradient(to right, grey 33%, transparent 0);
+  background-size: 30px 30px;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+} */

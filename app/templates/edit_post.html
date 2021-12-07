@@ -1,9 +1,20 @@
-{% extends "base.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Post</title>
 
-<h1>Edit Post</h1>
-{% if form %}
-  <form action="" method="post">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  </head>
+  <body>
+    {% extends "base.html" %}
+    {% block content %}
+
+
+    <h1> Edit Post </h1>
+    {% if form %}
+    <form action="" method="post">
       {{ form.hidden_tag() }}
       <p>
           {{ form.post.label }}<br>
@@ -13,6 +24,10 @@
           {% endfor %}
       </p>
       <p>{{ form.submit() }}</p>
-  </form>
-{% endif %}
-{% endblock %}
+    </form>
+    {% endif %}
+
+
+    {% endblock %}
+  </body>
+</html>

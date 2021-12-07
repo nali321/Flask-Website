@@ -13,6 +13,7 @@ from app.forms import RegistrationForm
 from app.forms import PostForm
 from app.models import Post
 from datetime import datetime
+from flask import Markup
 
 @app.route('/')
 # @app.route('/index')
@@ -40,7 +41,10 @@ def login():
         next_page = url_for('menu')
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('menu')
+            return redirect(next_page)
+        flash('Welcome to Mind Dump!')
         return redirect(next_page)
+        
 
     return render_template('login.html', title='Sign In', form=form)
 
@@ -52,7 +56,7 @@ def logout():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
-        return redirect(url_for('index'))
+        return redirect(url_for('login'))
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
@@ -71,24 +75,39 @@ def menu():
 @app.route("/tracker", methods=['GET', 'POST'])
 @login_required
 def tracker():
-    return render_template("tracker.html")
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, label="Tracker", author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash(Markup('You successfully submitted a post. Check under <a href="/prev"> previous journal entries.</a>'))
+        return redirect(url_for('tracker'))
+    
+    return render_template("tracker.html", form=form)
 
 @app.route("/activity", methods=['GET', 'POST'])
 @login_required
 def activity():
-    return render_template("activity.html")
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, label="Activity", author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash(Markup('You successfully submitted a post. Check under <a href="/prev"> previous journal entries.</a>'))
+        return redirect(url_for('activity'))
+    
+    return render_template("activity.html", form=form)
 
 @app.route("/journal", methods=['GET', 'POST'])
 @login_required
 def journal():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(body=form.post.data, author=current_user)
+        post = Post(body=form.post.data, label="Journal", author=current_user)
         db.session.add(post)
         db.session.commit()
-        flash('You succesfully submitted a post. Check under previous journal entries to see it.')
+        flash(Markup('You successfully submitted a post. Check under <a href="/prev"> previous journal entries.</a>'))
         return redirect(url_for('journal'))
-
     
     return render_template("journal.html", title='Journal Submit', form=form)
 
@@ -116,6 +135,7 @@ def prev():
 
 #deletes entire account as well as posts associated with it
 @app.route("/delete_acc")
+@login_required
 def delete_acc():
 
     try:
@@ -129,19 +149,21 @@ def delete_acc():
 
 #deletes the selected post
 @app.route("/delete_post/<int:id>")
+@login_required
 def delete_post(id):
 
     try:
         post_to_delete = Post.query.get_or_404(id)
         db.session.delete(post_to_delete)
         db.session.commit()
-        flash("Post deleted successfully")
+        flash("Post deleted successfully.")
         return redirect(url_for("prev"))
     
     except:
         flash("There was a problem deleting the post, try again.")
 
 @app.route("/edit_post/<int:id>", methods=['GET', 'POST'])
+@login_required
 def edit_post(id):
 
     #from models: class Post, has id, body (where user input is stored in the database)
@@ -152,17 +174,25 @@ def edit_post(id):
 
     #if submit is clicked
     if form.validate_on_submit():
-        post = Post(body=form.post.data, author=current_user)
-        
+
+        #the current post has it's body updated
+        #to whatever the user entered
+        post_to_save.body=form.post.data
         db.session.commit()
         flash('You succesfully edited a post.')
         return redirect(url_for('prev'))
     
-    print("POST HERE: " + str(post_to_save.body))
+    #if you click the edit button, then the form passed
+    #through will contain the words it had before
+    elif request.method == 'GET':
+        form.post.data = post_to_save.body
+    
+    return render_template("edit_post.html", title='Edit Post', form=form)
 
-    #form.post = post
-
-    return render_template("edit_post.html", title='Edit Post', form=form, post=post_to_save)
+@app.route("/help", methods=['GET', 'POST'])
+@login_required
+def help():
+    return render_template("help.html")
 
 
 

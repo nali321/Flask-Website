@@ -38,6 +38,6 @@ class RegistrationForm(FlaskForm):
 
 #creates the area to write and submit journal entries
 class PostForm(FlaskForm):
-    post = TextAreaField('Write your journal entry here', validators=[
-        DataRequired(), Length(min=1, max=140)])
+    post = TextAreaField('Write your entry here', validators=[
+        DataRequired(), Length(min=1, max=500)])
     submit = SubmitField('Submit')
